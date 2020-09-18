@@ -10,11 +10,10 @@ using System.Collections.Generic;
 public class ChangePrefab : EditorWindow 
 {
  
-    [MenuItem("Tools/ChangePrefab")]
+    [MenuItem("Tools/交换Prefab位置工具")]
     public static void Open()
     {
-        //GetWindow(typeof(Change_Prefab));
-        GetWindow<ChangePrefab>("ChangePrefab工具");
+        GetWindow<ChangePrefab>("交换Prefab位置工具");
     }
  
     public GameObject newPrefab;
