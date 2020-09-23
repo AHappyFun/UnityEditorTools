@@ -40,6 +40,8 @@ public static class AndroidBuildPostprocess
                     string destName = Path.Combine(pathToBuiltProject, obbName);
                     Directory.Move(sourceName, destName);
                     Debug.Log("Obb Change Name:" + sourceName +" To " + destName);
+
+                    return;
                 }
             }
         }
