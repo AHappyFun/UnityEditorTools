@@ -1,0 +1,6 @@
+#!/bin/sh
+
+form=$1
+to=$2
+
+cp -vf "${form}" "${to}"
