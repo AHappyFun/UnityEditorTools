@@ -10,3 +10,9 @@
 3.MusicPlotSlectTools
 读取配音csv,将Resources文件夹下的文件 按照角色名字分类复制到对应角色名的文件夹。
 涉及读取csv数据，IO操作。
+
+4.Inspector拓展
+
+5.SceneGUI扩展
+
+6.自动更改某个文件夹材质的Shader
