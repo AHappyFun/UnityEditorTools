@@ -16,3 +16,7 @@
 5.SceneGUI扩展
 
 6.自动更改某个文件夹材质的Shader
+
+7.打包Build后处理，OnBuildPostProcess
+
+8.使用反射调用Unity内置方法
