@@ -6,7 +6,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// 拓展Transform Inspector的编辑器，需要使用反射调用Editor内部的DLL方法
+/// 拓展现有Transform Inspector的编辑器，需要使用反射调用Editor内部的DLL方法
 /// </summary>
 [CustomEditor(typeof(Transform))]
 public class TransformInspectorEdit : Editor
