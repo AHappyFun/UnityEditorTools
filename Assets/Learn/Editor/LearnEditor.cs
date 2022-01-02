@@ -24,6 +24,8 @@ public class LearnEditor : EditorWindow
     private string txt;
     private Animation anim;
     private Texture texture;
+
+    Rect drag;
     private void OnGUI()
     {
         txt = EditorGUILayout.TextField("输入文字：", txt);
@@ -45,6 +47,35 @@ public class LearnEditor : EditorWindow
         {
             this.Close();
         }
+
+        EditorGUILayout.BeginVertical("GroupBox");
+        {
+            drag = EditorGUILayout.GetControlRect(GUILayout.Height(60));
+            EditorGUI.LabelField(drag, "拖动到这里");
+
+            if (drag.Contains(Event.current.mousePosition))
+            {
+                if (Event.current.type == EventType.DragUpdated)
+                {
+                    //Debug.Log("正在拖拽");
+                    DragAndDrop.visualMode = DragAndDropVisualMode.Copy;
+                }
+                else if (Event.current.type == EventType.DragPerform)
+                {
+                    Debug.Log("拖拽放下");
+                    foreach (var item in DragAndDrop.paths)
+                    {
+                        Debug.Log(item);
+                    }
+                    Object[] objs = DragAndDrop.objectReferences;
+                    foreach (var item in objs)
+                    {
+                        Debug.Log(item.name);
+                    }
+                }
+            }
+        }
+
     }
 
     private void Update()

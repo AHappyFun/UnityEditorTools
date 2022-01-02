@@ -6,7 +6,7 @@ using UnityEditor;
 /// <summary>
 /// Hierarchy的编辑器扩展
 /// </summary>
-public class HierarchyEdit
+public class HierarchyEditor
 {
     [InitializeOnLoadMethod]
     static void InitializeOnLoadMethod()

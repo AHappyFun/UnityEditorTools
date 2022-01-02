@@ -12,7 +12,7 @@ using UnityEngine;
 public class TransformInspectorEdit : Editor
 {
     private Editor _edit;
-    private void OnEnable()
+    private void Awake()
     {
         _edit = Editor.CreateEditor(target, Assembly.GetAssembly(typeof(Editor)).GetType("UnityEditor.TransformInspector" , true));
     }
@@ -22,6 +22,7 @@ public class TransformInspectorEdit : Editor
         if (GUILayout.Button("拓展Transform"))
         {
             Debug.Log("这里可以拓展Transform的Inspector方法哦");
+            _edit.ResetTarget();
         }
         //base.OnInspectorGUI();
         _edit.OnInspectorGUI();  //使用DLL里的原始方法
