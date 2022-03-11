@@ -76,6 +76,14 @@ public class HierarchyEditor
 
         GameObject go = EditorUtility.InstanceIDToObject(instanceID) as GameObject;
         if (go == null) return;
-        go.SetActive(GUI.Toggle(rect, go.activeSelf, string.Empty));
+        bool newActive = go.activeSelf;
+        bool active = GUI.Toggle(rect, go.activeSelf, string.Empty);
+
+        if (newActive != active)
+        {
+            newActive = active;
+            go.SetActive(newActive);
+            EditorUtility.SetDirty(go);
+        }
     }
 }
