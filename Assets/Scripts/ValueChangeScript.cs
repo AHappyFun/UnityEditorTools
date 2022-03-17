@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ValueChangeScript : MonoBehaviour
 {
-    public string name = "123";
+    public new string name = "123";
     public int num = 10;
 
     //脚本上Reset按钮触发

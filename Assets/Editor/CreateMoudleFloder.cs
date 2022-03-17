@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.IO;
 using UnityEditor;
 using UnityEngine;
-using System.IO;
 
 //用于创建项目模块
 //打开一个对话框，输入模块Name，生成一个包含Shader、Scripts、Materials、Textures、Model的文件夹
@@ -10,7 +8,7 @@ using System.IO;
 public class CreateMoudleFloder : EditorWindow
 {
 
-    private string name;
+    private new string name;
 
     private void OnGUI()
     {
@@ -28,7 +26,7 @@ public class CreateMoudleFloder : EditorWindow
     }
 
     private static void CreateMoudleFloderWithName(string name)
-    {      
+    {
         string moduleString = "Assets/" + name;
         if (!Directory.Exists(moduleString))
         {
