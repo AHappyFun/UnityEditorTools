@@ -4,7 +4,7 @@ using UnityEngine;
 public class HierarchyPathCopy : Editor
 {
 
-    [MenuItem("GameObject/¿½±´Â·¾¶ %&#C")]
+    [MenuItem("GameObject/æ‹·è´è·¯å¾„ %&#C")]
     static void GetRelativePath()
     {
         string path = string.Empty;
@@ -13,7 +13,7 @@ public class HierarchyPathCopy : Editor
             GameObject current = Selection.gameObjects[0];
             path = GetGameObjectPath(current);
             GUIUtility.systemCopyBuffer = path;
-            Debug.Log($"ÒÑ¿½±´ÍêÕûÂ·¾¶¡°{path}¡±µ½¼ôÇÐ°å");
+            Debug.Log($"å·²æ‹·è´å®Œæ•´è·¯å¾„â€œ{path}â€åˆ°å‰ªåˆ‡æ¿");
             return;
         }
         else if (Selection.gameObjects.Length == 2)
@@ -31,16 +31,16 @@ public class HierarchyPathCopy : Editor
             }
             else
             {
-                Debug.Log("Á½¸öGameobjectÃ»ÓÐ¸¸×Ó¹ØÏµ");
+                Debug.Log("ä¸¤ä¸ªGameobjectæ²¡æœ‰çˆ¶å­å…³ç³»");
                 return;
             }
 
             GUIUtility.systemCopyBuffer = path;
-            Debug.Log($"ÒÑ¿½±´¡°{path}¡±µ½¼ôÇÐ°å");
+            Debug.Log($"å·²æ‹·è´â€œ{path}â€åˆ°å‰ªåˆ‡æ¿");
         }
         else if (Selection.gameObjects.Length > 2)
         {
-            Debug.Log("ÒÑÑ¡ÔñµÄGameobject´óÓÚÁ½¸ö£¬ÎÞ·¨²éÕÒ");
+            Debug.Log("å·²é€‰æ‹©çš„Gameobjectå¤§äºŽä¸¤ä¸ªï¼Œæ— æ³•æŸ¥æ‰¾");
         }
 
     }
