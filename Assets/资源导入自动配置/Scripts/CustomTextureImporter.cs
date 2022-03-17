@@ -26,9 +26,16 @@ public class CustomTextureImporter : AssetPostprocessor
 
             //设置plan2
             TextureImporterPlatformSettings settings = textureImporter.GetPlatformTextureSettings("Android");
-            if(settings.format != TextureImporterFormat.RGBA32 && settings.format != TextureImporterFormat.ETC2_RGBA8)
+            if (settings.format != TextureImporterFormat.RGBA32 && settings.format != TextureImporterFormat.ETC2_RGBA8)
             {
-                textureImporter.SetPlatformTextureSettings("Android", 2048, TextureImporterFormat.ETC2_RGBA8, true);
+                settings.maxTextureSize = 2048;
+                settings.format = TextureImporterFormat.ETC2_RGBA8;
+                settings.allowsAlphaSplitting = true;
+                textureImporter.SetPlatformTextureSettings(settings);
+
+                //已弃用用上面方法
+                //textureImporter.SetPlatformTextureSettings("Android", 2048, TextureImporterFormat.ETC2_RGBA8, true);
+
             }
         }
     }
@@ -36,13 +43,20 @@ public class CustomTextureImporter : AssetPostprocessor
     [MenuItem("Assets/手动设置贴图格式", false, -1)]
     static void SetTextureFormat()
     {
-        if(Selection.assetGUIDs.Length > 0)
+        if (Selection.assetGUIDs.Length > 0)
         {
             AssetImporter importer = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(Selection.activeObject));
 
-            if(importer is TextureImporter)
+            if (importer is TextureImporter)
             {
-                (importer as TextureImporter).SetPlatformTextureSettings("Standalone", 2048, TextureImporterFormat.RGBA32, true);
+                TextureImporterPlatformSettings standalone = (importer as TextureImporter).GetPlatformTextureSettings("Standalone");
+                standalone.maxTextureSize = 2048;
+                standalone.format = TextureImporterFormat.RGBA32;
+                standalone.allowsAlphaSplitting = true;
+                (importer as TextureImporter).SetPlatformTextureSettings(standalone);
+
+                //已弃用用上面方法
+                //(importer as TextureImporter).SetPlatformTextureSettings("Standalone", 2048, TextureImporterFormat.RGBA32, true);
                 importer.SaveAndReimport();
             }
         }
